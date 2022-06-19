@@ -7,10 +7,10 @@ import pyautogui as pag
 from pynput import mouse
 import time
 
-screenSize = [0,0,1919,1079]
+screenSize = pag.size()
 currentItem = []#[x1,y1,x2,y2] 
 searchItemsList = []
-looping = True #controls while loop in main()
+
 
 def onClick(x,y,button,pressed):
     
@@ -19,12 +19,13 @@ def onClick(x,y,button,pressed):
         listener.stop()
         
     #selected area must be within screen size
-    elif (0 < x < 1919) and (0 < y < 1079) and pressed and button==mouse.Button.left:
+    elif pag.onScreen(x,y) and pressed and button==mouse.Button.left:
         
         if len(currentItem) <= 2:
             currentItem.append(x)
             currentItem.append(y)
-            print('collected first point')
+            if len(currentItem) == 2: 
+                print('collected first point')
         #stop listener when we get two sets of coordinates
         if len(currentItem) == 4:
             listener.stop()
@@ -34,7 +35,7 @@ def onClick(x,y,button,pressed):
             currentItem.clear()
             setMousePosition(target)
 
-#returns center coordinates of an area selected by user 
+#returns center coordinates between two points selected by user 
 def selectItem(currentItem): 
 
     #area to be screenshotted(left, top, width, height)
@@ -44,11 +45,9 @@ def selectItem(currentItem):
 
 def setMousePosition(target):
     x, y = target[0], target[1]
-    print('x= {}, y= {}', x,y)
+    print('x= {0}, y= {1}'.format(x,y))
     pag.moveTo(x,y)
     
 print('start')
 with mouse.Listener(on_click=onClick) as listener:
     listener.join()
-    print('listener started')
-
