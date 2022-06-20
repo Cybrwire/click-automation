@@ -5,12 +5,13 @@
 
 import pyautogui as pag
 from pynput import mouse, keyboard
-import time
 
+# variables
 screenSize = pag.size()
 currentItem = []#[x1,y1,x2,y2] 
 searchItemsList = []
 kb = keyboard.Controller()
+
 
 def onClick(x,y,button,pressed):
     
@@ -48,6 +49,7 @@ def setMousePosition(target):
     print('x= {0}, y= {1}'.format(x,y))
     pag.moveTo(x,y)
     
+
 
 print('start')
 

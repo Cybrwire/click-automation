@@ -9,3 +9,5 @@ This app will help automate a few tedious administrative tasks at work.
 4. Keypress
 5. Paste text
 
+# Errors
+ - Locate center on screen is returning coordinates slightly off from the search target
