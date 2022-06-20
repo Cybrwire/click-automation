@@ -1,16 +1,16 @@
 # Author: Justin Montgomery
 # Date: 05/11/2022
-# Version: Python 3.8.9
+# Version: Python 3.10.5
 # Purpose: This module allows the user to select two points on the screen creating a box around an area on screen to be searched for.
 
 import pyautogui as pag
-from pynput import mouse
+from pynput import mouse, keyboard
 import time
 
 screenSize = pag.size()
 currentItem = []#[x1,y1,x2,y2] 
 searchItemsList = []
-
+kb = keyboard.Controller()
 
 def onClick(x,y,button,pressed):
     
@@ -48,6 +48,8 @@ def setMousePosition(target):
     print('x= {0}, y= {1}'.format(x,y))
     pag.moveTo(x,y)
     
+
 print('start')
+
 with mouse.Listener(on_click=onClick) as listener:
     listener.join()
