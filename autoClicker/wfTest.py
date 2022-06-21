@@ -1,27 +1,112 @@
 import os
 import pyautogui as pag
-from pynput import mouse, keyboard
+import time
+from pynput.keyboard import Key, Controller
+
 
 # variables
 screenSize = pag.size()
 images = []
-kb = keyboard.Controller()
+kb = Controller()
 keyPresses = ['Key.enter','Key.end','Key.tab']
 imgDirectory = '../images'
-
-# fill array with filenames from images directory
-for file in os.listdir(imgDirectory): 
-    images.append(file)
-
-#center point of search image
-a,b = pag.locateCenterOnScreen(images[0])
+pag.PAUSE = 0.5
 
 
-print('x: {0}, y: {1}'.format(a,b))
-if pag.onScreen(a,b):
-    pag.moveTo(a,b,1)
-    pag.click()
-    print('pass')
-else:
-    print('fail')
-    print(screenSize)
+a,b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/showmore.png',grayscale=False,confidence=0.95)
+pag.moveTo(a/2,b/2)
+pag.click()
+pag.click()
+kb.press(Key.end)
+kb.release(Key.end)
+# Delete Jess or Josh
+a,b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/routingrules.png')
+pag.moveTo(a/2,(b/2)-25)
+pag.click()
+time.sleep(1)
+if not pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/routetojess.png'):
+    a, b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/routetojosh.png')
+else: 
+    a, b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/routetojess.png')
+pag.moveTo(a/2,b/2)
+pag.moveRel(-50,0, duration=0.1)
+pag.click()
+a,b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/delete.png')
+pag.moveTo(a/2,b/2)
+pag.click()
+a,b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/yesdeleteit.png')
+pag.moveTo(a/2,b/2)
+pag.click()
+time.sleep(2)
+# Change to Huma
+a,b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/routetoanitha.png')
+pag.moveTo(a/2,b/2)
+pag.click()
+time.sleep(2)
+a,b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/editroutingrule.png')
+pag.moveTo(a/2,b/2)
+pag.click()
+kb.type('Route to Huma')
+kb.press(Key.tab)
+kb.release(Key.tab)
+kb.press(Key.tab)
+kb.release(Key.tab)
+kb.type('Huma Khimani')
+time.sleep(2)
+kb.press(Key.enter)
+kb.release(Key.enter)
+a,b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/saverouting.png')
+pag.moveTo((a/2)-10,b/2)
+pag.click()
+time.sleep(2)
+a,b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/backtoproject.png',grayscale=False,confidence=0.9)
+pag.moveTo(a/2,(b/2)-40)
+pag.click()
+time.sleep(2)
+# move to queue topics
+a,b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/showmore.png',grayscale=False,confidence=0.9)
+pag.moveTo(a/2,b/2)
+pag.click()
+kb.press(Key.end)
+kb.release(Key.end)
+a,b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/queuetopics.png')
+pag.moveTo(a/2,b/2)
+pag.click()
+time.sleep(2)
+# change strategy
+a,b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/strategy.png')
+pag.moveTo(a/2,b/2)
+pag.click()
+a,b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/edit.png')
+pag.moveTo(a/2,b/2)
+pag.click()
+time.sleep(1.5)
+kb.press(Key.end)
+kb.release(Key.end)
+a,b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/defaultroute.png')
+pag.moveTo(a/2,b/2)
+pag.click()
+a,b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/routetobrett.png')
+pag.moveTo(a/2,b/2)
+pag.click()
+pag.moveRel(-10,100)
+pag.click()
+time.sleep(1)
+# change performance
+a,b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/performance.png')
+pag.moveTo(a/2,b/2)
+pag.click()
+a,b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/edit.png')
+pag.moveTo(a/2,b/2)
+pag.click()
+time.sleep(1.5)
+kb.press(Key.end)
+kb.release(Key.end)
+a,b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/defaultroute.png')
+pag.moveTo(a/2,b/2)
+pag.click()
+a,b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/routetobrett.png')
+pag.moveTo(a/2,b/2)
+pag.click()
+pag.moveRel(-10,100)
+pag.click()
