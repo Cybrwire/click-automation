@@ -7,6 +7,7 @@ This app will help automate a few tedious administrative tasks at work.
 3. Click
 4. Keypress
 5. Paste text
-
-# Errors
- - Locate center on screen is returning coordinates slightly off from the search target :FIX: Mac retina displays double the pixel density, so dividing the coordinates by 2 fixed the issue. 
+6. Check excel file
+8. Write to excel file
+9. Save excel file
+10. Open link
