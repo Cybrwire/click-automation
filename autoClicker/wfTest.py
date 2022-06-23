@@ -20,7 +20,7 @@ wb = openpyxl.load_workbook(excelFile)
 sheet = wb['Exported_Projects - Data List']
 
 
-for row in sheet.iter_rows(min_row=223,max_row=260,min_col=1,max_col=2):
+for row in sheet.iter_rows(min_row=223,min_col=1,max_col=2):
     cells = []
     rowNumber = int(re.search('A([0-9]{1,3})',str(row)).group(1))
     
@@ -91,9 +91,13 @@ for row in sheet.iter_rows(min_row=223,max_row=260,min_col=1,max_col=2):
     time.sleep(2)
 
     # move to queue topics
-    a,b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/showmore.png',grayscale=False,confidence=0.9)
-    pag.moveTo(a/2,b/2)
-    pag.click()
+    try: 
+        a,b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/showmore.png',grayscale=False,confidence=0.9)
+        pag.moveTo(a/2,b/2)
+        pag.click()
+    except TypeError:
+        pag.moveTo(175,400)
+        pag.click()
     kb.press(Key.end)
     kb.release(Key.end)
     time.sleep(.5)
@@ -108,6 +112,7 @@ for row in sheet.iter_rows(min_row=223,max_row=260,min_col=1,max_col=2):
         pag.click()
         kb.press(Key.esc)
         kb.press(Key.page_down)
+        time.sleep(1)
         a,b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/strategy.png')
     else: 
         a,b = pag.locateCenterOnScreen('/Users/jmontgomery/repos/click-automation/images/strategy.png')
