@@ -5,9 +5,13 @@
 # Purpose: This module allows the user to select two points on the screen
 # creating a box around an area on screen to be searched for.
 
-import pyautogui as pag
-from pynput import mouse, keyboard
+# native imports
 import sys
+
+# external imports
+import pyautogui as pag
+from pynput import keyboard, mouse
+
 
 def python_310():
     """Returns whether the current python version is above or equal to 3.10"""
