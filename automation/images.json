@@ -1,0 +1,21 @@
+{
+    "backtoproject": "../images/backtoproject.png",
+    "defaultroute": "../images/defaultroute.png",
+    "defaultroutingforperformance": "../images/defaultroutingforperformance.png",
+    "delete": "../images/delete.png",
+    "deleteconfirm": "../images/deleteconfirm.png",
+    "edit": "../images/edit.png",
+    "editroutingrule": "../images/editroutingrule.png",
+    "performance": "../images/performance.png",
+    "queuetopics": "../images/queuetopics.png",
+    "routetoanitha": "../images/routetoanitha.png",
+    "routetobrett": "../images/routetobrett.png",
+    "routetojess": "../images/routetojess.png",
+    "routetojosh": "../images/routetojosh.png",
+    "routingrules": "../images/routingrules.png",
+    "savechanges": "../images/savechanges.png",
+    "saverouting": "../images/saverouting.png",
+    "showmore": "../images/showmore.png",
+    "strategy": "../images/strategy.png",
+    "yesdeleteit": "../images/yesdeleteit.png"
+}
