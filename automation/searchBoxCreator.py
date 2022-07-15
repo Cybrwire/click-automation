@@ -42,7 +42,7 @@ def onClick(x,y,button,pressed):
         if python_310():
             match [l<=2, l==4]:
                 case (True, False):
-                    currentItem.append((x,y))
+                    currentItem.extend([x,y])
                     if currentItem == 2:
                         print('collected first point')
                 case (False, True):
@@ -54,7 +54,7 @@ def onClick(x,y,button,pressed):
                     setMousePosition(target)
         else:
             if l<=2:
-                currentItem.append((x,y))
+                currentItem.extend([x,y])
                 if currentItem == 2:
                     print('collected first point')
             elif l==4:

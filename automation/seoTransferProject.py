@@ -85,15 +85,14 @@ def move_to_queue_topics(img_key):
     time.sleep(2)
 
 def change_strategy(img_key):
-    try:
-        a,b = pag.locateCenterOnScreen(img_key.get('strategy'))
-    except:
+    a, b = pag.locateCenterOnScreen(img_key.get('strategy'))
+    while not a:
         pag.moveRel(+115,0)
         pag.click()
         kb.press(Key.esc)
         kb.press(Key.page_down)
         time.sleep(1)
-        a,b = pag.locateCenterOnScreen(img_key.get('strategy'))
+        a, b = pag.locateCenterOnScreen(img_key.get('strategy'))
     
     pag.moveTo(a/2,b/2)
     pag.click()
@@ -119,15 +118,14 @@ def change_strategy(img_key):
     time.sleep(1)
 
 def change_performance(img_key):
-    try:
-        pag.locateCenterOnScreen(img_key.get('performance'))
-    except:
+    present = pag.locateCenterOnScreen(img_key.get('performance'))
+    while not present:
         pag.moveRel(-10,0)
         pag.click()
         kb.press(Key.esc)
         kb.press(Key.page_down)
         time.sleep(1)
-        pag.locateCenterOnScreen(img_key.get('performance'))
+        present = pag.locateCenterOnScreen(img_key.get('performance'))
     
     pag.moveTo(a/2,b/2)
     pag.click()
